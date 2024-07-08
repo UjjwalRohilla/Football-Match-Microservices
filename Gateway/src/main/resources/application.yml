@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    gateway:
+        routes:
+          - id: CHECK-JWT
+            uri: lb://CHECK-JWT
+            predicates:
+              - Path=/check_jwt/**
+          - id: ENCRYPTED
+            uri: lb://ENCRYPTED
+            predicates:
+              - Path=/**
+#            filters:
+#              - name: RequestRateLimiter
+#                args:
+#                  redis-rate-limiter.replenishRate: 1
+#                  redis-rate-limiter.burstCapacity: 1
+#                  redis-rate-limiter.requestedTokens: 1
+          - id: GENERATE-JWT
+            uri: lb://GENERATE-JWT
+            predicates:
+              - Path=/**
+  application:
+    name: GATEWAY-SERVICE
+server:
+  port: 1113
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:1110/eureka

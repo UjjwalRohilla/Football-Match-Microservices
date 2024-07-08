@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ENCRYPTED-SERVICE
+server:
+  port: 1112
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:1110/eureka
+
+resilience4j:
+  ratelimiter:
+    instances:
+      drawMatchesDataRateLimiter:
+        limit-refresh-period: 1s
+        limit-for-period: 1
+        timeout-duration: 0ms
+      sendDataToBackend:
+        limit-refresh-period: 1s
+        limit-for-period: 1
+        timeout-duration: 0ms

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: GENERATE-JWT
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/testusers
+server:
+  port: 1114
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:1110/eureka
