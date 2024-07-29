@@ -17,7 +17,6 @@ public class RateLimiterConfiguration {
                 .limitRefreshPeriod(Duration.ofSeconds(3))
                 .limitForPeriod(1)
                 .build();
-        System.out.println("DrawMatchesDataRateLimiter RateLimiter Config is running");
         return RateLimiter.of("drawMatchesDataRateLimiter",rateLimiterConfig);
     }
 
