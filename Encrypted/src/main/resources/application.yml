@@ -13,14 +13,14 @@ eureka:
     service-url:
       defaultZone: http://localhost:1110/eureka
 
-resilience4j:
-  ratelimiter:
-    instances:
-      drawMatchesDataRateLimiter:
-        limit-refresh-period: 1s
-        limit-for-period: 1
-        timeout-duration: 0ms
-      sendDataToBackend:
-        limit-refresh-period: 1s
-        limit-for-period: 1
-        timeout-duration: 0ms
+#resilience4j:
+#  ratelimiter:
+#    instances:
+#      drawMatchesDataRateLimiter:
+#        limit-refresh-period: 3s
+#        limit-for-period: 1
+#        timeout-duration: 0ms
+#      sendDataToBackend:
+#        limit-refresh-period: 1s
+#        limit-for-period: 1
+#        timeout-duration: 0ms

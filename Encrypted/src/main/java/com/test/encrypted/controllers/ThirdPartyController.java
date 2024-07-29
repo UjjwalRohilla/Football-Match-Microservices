@@ -33,7 +33,7 @@ public class ThirdPartyController {
         return ResponseEntity.ok(response);
     }
 
-    public ResponseEntity<String> drawMatchesDataFallback(Integer year, Exception e){
+    public ResponseEntity<String> drawMatchesDataFallback(Integer year,Integer page, Exception e){
         return ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).body(e.getMessage());
     }
 }
